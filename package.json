@@ -1,0 +1,23 @@
+{
+  "name": "express-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "consolidate": "^0.14.5",
+    "express": "^4.15.3",
+    "font-awesome": "^4.7.0",
+    "handlebars": "^4.0.10",
+    "mysql": "^2.13.0",
+    "request": "^2.81.0",
+    "twig": "^1.10.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
