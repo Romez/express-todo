@@ -1,38 +1,27 @@
-var mysql = require('mysql');
+module.exports = function (pool) {
+    return {
+        list: function (callback) {
+            pool.query('SELECT * FROM tasks', callback);
+        },
 
-var pool = mysql.createPool({
-    host: 'localhost',
-    database: 'express-todo',
-    user: 'root',
-    password: ''
-});
+        add: function (task, callback) {
+            pool.query('INSERT INTO tasks SET ?', {task: task}, callback);
+        },
 
-var Tasks = {
-    list: function (callback) {
-        pool.getConnection(function(err, connection){
-            connection.query('SELECT * FROM tasks', callback);
-            connection.release();
-        });
-    },
+        change: function (id, text, callback) {
+            // TODO
+        },
 
-    add: function (task, callback) {
-        pool.getConnection(function(err, connection){
-            connection.query('INSERT INTO tasks SET ?', {task: task}, callback);
-            connection.release();
-        });
-    },
+        complete: function (id, callback) {
+            //TODO
+        },
 
-    change: function (id, text, callback) {
-        // TODO
-    },
+        delete: function (id, callback) {
+            pool.query('DELETE FROM tasks WHERE ?', {id: id}, callback);
+        },
 
-    complete: function (id, callback) {
-        //TODO
-    },
-
-    delete: function (id, callback) {
-        //TODO
-    }
+        view: function (id, callback) {
+            pool.query('SELECT * FROM tasks WHERE ?', {id: id}, callback);
+        }
+    };
 };
-
-module.exports = Tasks;
