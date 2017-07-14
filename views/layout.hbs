@@ -12,10 +12,30 @@
 <body>
 
 <main id="main">
-    <h1>
-        <a href="/tasks">TODO manager</a>
-    </h1>
+    <header>
+        <div id="logo">
+            <a href="/">Todo list</a>
+        </div>
+        {{#if username}}
+            <nav>
+                <div class="item">
+                    <a href="/"><span>Главная</span></a>
+                </div>
+                <div class="item">
+                    <a href="/tasks"><span>Задачи</span></a>
+                </div>
+                <div class="item">
+                    <a href="/logout">Выход ({{username}})</a>
+                </div>
+            </nav>
+        {{/if}}
+    </header>
+
     {{{content}}}
+
+    <footer>
+        &copy;
+    </footer>
 </main>
 
 </body>

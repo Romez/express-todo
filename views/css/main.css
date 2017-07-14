@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Vox;
+    src: url(../fonts/Vox.ttf)
+}
+
 #main{
     margin: 0 auto;
     max-width: 960px;
@@ -11,4 +16,30 @@
 }
 .table tr, .table td {
     border: 1px solid black;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+header a{
+    text-decoration: none;
+}
+
+header #logo a{
+    display: block;
+    font-size: 200%;
+    font-family: Vox;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+header nav .item a{
+    display: block;
+    padding: 10px;
 }

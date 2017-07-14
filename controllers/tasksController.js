@@ -14,7 +14,7 @@ module.exports = function (tasks) {
     };
     var add = function (req, res) {
         tasks.add(req.body.task, function () {
-            res.redirect('/');
+            res.redirect('/tasks');
         })
     };
     var del = function (req, res) {
@@ -28,7 +28,7 @@ module.exports = function (tasks) {
 
         tasks.view(id, function (err, task) {
             res.render('task.twig',
-                {task: task[0]},
+                {task: task},
                 function (err, html) {
                     if(err) throw err;
                     res.render('layout.hbs', {

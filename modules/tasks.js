@@ -21,7 +21,13 @@ module.exports = function (pool) {
         },
 
         view: function (id, callback) {
-            pool.query('SELECT * FROM tasks WHERE ?', {id: id}, callback);
+            pool.query(
+                'SELECT * FROM tasks WHERE ?',
+                {id: id},
+                function (err, result) {
+                    callback(err, result[0])
+                }
+            );
         }
     };
 };
